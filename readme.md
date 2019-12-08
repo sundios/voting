@@ -24,7 +24,7 @@ In this section, we will cover how to capture the input data from the push butto
 
 
 <p align="center">
- ![Arduino](https://github.com/sundios/voting/blob/master/images/arduino.png)
+ ![Arduino](https://raw.githubusercontent.com/sundios/voting/master/images/arduino.png)
 </p>
 
 
