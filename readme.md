@@ -9,7 +9,6 @@ In this essay, we discuss how to use sensor data acquisition technologies to cre
 ### Technologies Used
 
 Technologies used to acquire the data include two buttons, a breadboard and an Arduino. Software used to capture and store the data include Arduino Studio, Processing and MySQL(RDS in AWS). Finally, to present the data we use Google Data Studio. In this paper, we will include all of our code in Arduino, Processing and MySQL. We will also talk about how we connect our database to Google Data Studio using Amazon Web Services (AWS). This allows us to view the data online and share our results.
-### Prerequisites
 
 ### Project Links 
 
@@ -18,4 +17,15 @@ Technologies used to acquire the data include two buttons, a breadboard and an A
 
 
 ## Arduino
+
+### Capturing the Data 
+
+In this section, we will cover how to capture the input data from the push buttons and get the computer to read the corresponding string values representing the candidates in the Arduino Studio Serial Monitor. First, we setup our push buttons on the breadboard and connect our Arduino like the diagram shown below. 
+
+
+<p align="center">
+ ![Arduino](https://github.com/sundios/voting/blob/master/images/arduino.png)
+</p>
+
+
 
