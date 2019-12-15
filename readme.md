@@ -135,13 +135,13 @@ Once we were able to connect our database to data studio and create a data sourc
 
 * ScorreCard: Simple Scorecard with overal results and results by participant.
 * Column Chart: Display the vote count day by day for each candidate
-*Table:The columns show the date, the percentage of votes for each candidate that day, and the vote counts for each candidate.
-*Time Series Chart: The time series chart shows the the breakdown of percentage of votes for each candidate day-by-day. 
-*Combo Chart: Includes the Percentage of the total and the votes per date separated by candidates
+* Table:The columns show the date, the percentage of votes for each candidate that day, and the vote counts for each candidate.
+* Time Series Chart: The time series chart shows the the breakdown of percentage of votes for each candidate day-by-day. 
+* Combo Chart: Includes the Percentage of the total and the votes per date separated by candidates
 
 
 <p align="center">
-  <img width="460" height="100%" src="https://raw.githubusercontent.com/sundios/voting/master/images/dashboard.gif">
+  <img width="100%" height="100%" src="https://raw.githubusercontent.com/sundios/voting/master/images/dashboard.gif">
 </p>
 
 
