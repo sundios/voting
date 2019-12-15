@@ -1,6 +1,11 @@
-![alt text](http://url/to/img.png)
+
 
 # Arduino Voting System
+
+## Authors
+
+* **Margaret Sant**  - [Santma](https://github.com/santma)
+* **Konrad Burchardt** - [Sundios](https://github.com/sundios)
 
 ## Getting Started
 
@@ -82,6 +87,62 @@ In our `void setup()` function we create the connecting credentials of our datab
 
 So any time somebody pushes the button in our Arduino device it will push the value to our database. Our MySQL vote table would look something like this Table 4.1 .
 
+|id | Name | Date | 
+|--- | --- | --- |
+|1 | Konrad. | 2019-12-01 | 
+|2| Margi. | 2019-12-01 |
+|3| Konrad. | 2019-12-01 |
+
+## Google Data Studio
+
+Data Studio is Google’s reporting solution for power users who want to go beyond the data and dashboards of Google Analytics. The data widgets in Data Studio are notable for their variety, customization options, live data and interactive controls (such as column sorting and table pagination). Data sources include Google products (Analytics, AdWords, Search Console, Sheets, YouTube, etc.), database connectors, file upload, and “community” connectors to popular marketing services.
+
+### Connecting our Database to Google Data Studio
+
+To visualize our information in Data Studio, the first step we need to do is to connect our report to the data we want to use. For this we created a new Data source and use the MySQL connector.
+
+In the MySQL connector we need to the Authentication of our database and pass the following variables: \code{Host Name or IP , Port(Optional), Database , Username and Password}. Once we connect we can select view the tables and the columns of them or we can use a custom Query to select specifically what we want.
+
+In our case, since the names(votes) were in one column, we needed to create a custom Query that counted each of the votes but separate them into 2 different columns and group them by date. The query we used to do this was the following: 
+
+```SQL
+select count(*) as count,
+ Date_Format(Date(Date),'%Y/%m/%d') as Date,
+ sum(Name = 'Konrad.') As KB, 
+ sum(Name='Margi.') as Margi 
+ from votes 
+ Group by Date(Date)
+
+```
+
+The custom query would generate the following table:
+
+|count| Date | KB | Margi |
+|--- | --- | --- | --- |
+|4 | 2019/11/27 | 1 | 3  |
+|3  | 2019/11/28 |    2 |     1 |
+|2 | 2019/11/29 |    0 |     2 |
+|6 | 2019/11/30 |    1 |     5 |
+|6 | 2019/12/01 |    4 |     2 |
+|4 | 2019/12/02 |   2 |    2 |
+|6 | 2019/12/03 |    3 |     3 |
+|22 | 2019/12/04 |   13 |     9 |
+
+
+## Creating The Report
+
+Once we were able to connect our database to data studio and create a data source, we start designing our lay out of the report. For this the goal was to show how the voting happens in live time. Our report includes the following 
+
+* ScorreCard: Simple Scorecard with overal results and results by participant.
+* Column Chart: Display the vote count day by day for each candidate
+*Table:The columns show the date, the percentage of votes for each candidate that day, and the vote counts for each candidate.
+*Time Series Chart: The time series chart shows the the breakdown of percentage of votes for each candidate day-by-day. 
+*Combo Chart: Includes the Percentage of the total and the votes per date separated by candidates
+
+
+<p align="center">
+  <img width="460" height="100%" src="https://raw.githubusercontent.com/sundios/voting/master/images/dashboard.gif">
+</p>
 
 
 
